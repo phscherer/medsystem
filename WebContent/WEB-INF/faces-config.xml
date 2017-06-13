@@ -6,4 +6,15 @@
     version="2.2">
 	
 	
+	
+	<application>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>br.org.catolicasc.motors.messages.Mensagens</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>
+	
 </faces-config>
