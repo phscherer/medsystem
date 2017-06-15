@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><ui:insert name="pageTitle">MedSystem</ui:insert></title>
+	<h:outputStylesheet library="css" name="template.css" />
+</h:head>
+<h:body>
+	<div id="menu">
+		<ui:include src="/WEB-INF/comuns/menu.xhtml" />
+	</div>
+	<div id="body">
+		<ui:insert name="body" />
+	</div>
+	<div id="rodape">
+		<ui:include src="/WEB-INF/comuns/rodape.xhtml" />
+	</div>
+</h:body>
+</html>

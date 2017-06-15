@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login - MedSystem</title>
+        <h:outputStylesheet library="css" name="facesmed.css" />
+    </h:head>
+    <h:body>
+      <h:form id="formLogin">
+        <h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema."/></h1>
+        <h:panelGrid id="gridLoginSenha" columns="2">
+          <h:outputText id="loginLabel" value="Login:"/>
+          <h:inputText id="login" value=""/>
+
+          <h:outputText id="senhaLabel" value="Senha:"/>
+          <h:inputSecret id="senha" value=""/>
+        </h:panelGrid>
+        <h:commandButton id="btnEntrar" value="Entrar"/>
+        <h:commandButton id="btnCadastro" value="Cadastro"/>
+      </h:form>
+    </h:body>
+</html>
