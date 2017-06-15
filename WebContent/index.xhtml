@@ -3,20 +3,20 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Login - MedSystem</title>
-        <h:outputStylesheet library="css" name="facesmed.css" />
+        <link rel="stylesheet" type="text/css" href="resources/css/faces.css" />
     </h:head>
     <h:body>
-      <h:form id="formLogin">
+      <h:form id="formLogin" styleClass="form">
         <h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema."/></h1>
-        <h:panelGrid id="gridLoginSenha" columns="2">
+        <h:panelGrid styleClass="form" id="gridLoginSenha" columns="2">
           <h:outputText id="loginLabel" value="Login:"/>
           <h:inputText id="login" value=""/>
 
           <h:outputText id="senhaLabel" value="Senha:"/>
           <h:inputSecret id="senha" value=""/>
         </h:panelGrid>
-        <h:commandButton id="btnEntrar" value="Entrar"/>
-        <h:commandButton id="btnCadastro" value="Cadastro"/>
+        <h:commandButton styleClass="btn" id="btnEntrar" value="Entrar"/>
+        <h:commandButton styleClass="btn" id="btnCadastro" value="Cadastro"/>
       </h:form>
     </h:body>
 </html>
