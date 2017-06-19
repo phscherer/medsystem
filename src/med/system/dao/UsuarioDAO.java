@@ -1,14 +1,14 @@
 package med.system.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import med.system.entity.Usuario;
+import med.system.persistence.JpaUtil;
 
 public class UsuarioDAO extends JpaDaoBase<Usuario> {
-	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("usuarios");
-	private EntityManager em = factory.createEntityManager();
+	EntityManager em = JpaUtil.getEntityManager();
+	EntityTransaction tx = em.getTransaction();
 	
 	public Usuario getUsuario(String nomeUsuario, String senha) {
 		try {
