@@ -21,6 +21,40 @@ public class Usuario implements Bean {
 
     @Column(name="password", nullable=false, unique=false)
     private String senha;
+    
+    @Column(name="name", nullable=false, unique=false)
+    private String nome;
+    
+    @Column(name="age", nullable=false, unique=false)
+    private int idade;
+    
+    @Column(name="gender", nullable=false, unique=false)
+    private String genero;
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
     public String getNomeUsuario() {
         return nomeUsuario;

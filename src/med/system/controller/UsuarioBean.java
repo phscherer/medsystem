@@ -16,10 +16,10 @@ public class UsuarioBean {
     private Usuario usuario = new Usuario();
     private UsuarioDAO usuarioDao = new UsuarioDAO();
 
-
+    
     public void salva() throws IOException {
-        if (this.usuario.getNomeUsuario().trim().isEmpty() || this.usuario.getSenha().trim().isEmpty()) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO!", "Informe os dados corretamente."));
+        if (isFilledFields(this.usuario)) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "ERRO!", "Informe os dados corretamente."));
         } else {
             this.usuarioDao.salva(this.usuario);
             this.usuario = new Usuario();
@@ -28,6 +28,11 @@ public class UsuarioBean {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
         }
+    }
+    
+    private boolean isFilledFields(Usuario user) {
+        return user.getNomeUsuario().trim().isEmpty() || user.getSenha().trim().isEmpty() || 
+                user.getNome().trim().isEmpty() || user.getIdade() == 0 || user.getGenero().trim().isEmpty();
     }
 
     public void exclui(Usuario usuario) {

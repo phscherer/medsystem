@@ -24,7 +24,26 @@
 				<h:inputText styleClass="form-control" style="width:300px" id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}" />
 				<p:watermark for="nomeUsuario" value="Informe seu login..." id="watermarkUsuario" />
 			</div>
-
+			
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<h:inputText styleClass="form-control" style="width:300px" id="nome" value="#{usuarioBean.usuario.nome}" />
+				<p:watermark for="nome" value="Informe seu nome..." id="watermarkNome" />
+			</div>
+			
+			<div class="form-group">
+				<label for="idade">Idade:</label>
+				<h:inputText styleClass="form-control" style="width:300px" id="idade" value="#{usuarioBean.usuario.idade}" />
+				<p:watermark for="idade" value="Informe sua idade..." id="watermarkIdade" />
+			</div>
+			
+			<div class="form-group">
+				<h:selectOneRadio value="#{usuarioBean.usuario.genero}">
+	   				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+	   				<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
+		   		</h:selectOneRadio>
+	   		</div>
+			
 			<div class="form-group">
 				<label for="senha">Senha:</label>
 				<h:inputSecret styleClass="form-control" style="width:300px" id="senha" value="#{usuarioBean.usuario.senha}" />
