@@ -14,9 +14,13 @@ public class UsuarioBean {
 	private UsuarioDAO usuarioDao = new UsuarioDAO();
 	
 	
-	public void salva() {
+	public String salva() {
 		this.usuarioDao.salva(this.usuario);
 		this.usuario = new Usuario();
+		FacesMessage msg = new FacesMessage("Paciente cadastrado com sucesso!");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+		
+		return "index.xhtml";
 	}
 	
 	public void exclui(Usuario usuario) {

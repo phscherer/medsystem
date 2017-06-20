@@ -4,30 +4,29 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Login - MedSystem</title>
+	<title>Cadastro - MedSystem</title>
 	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
 </h:head>
 
 <h:body>
 	<h:form>
 		<div align="center" >
-			<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema"/></h1>
+			<h1><h:outputText id="bemVindo" value="Registre-se"/></h1>
 			<h:messages id="messages" />
 		
 			<div class="form-group">
 				<label for="login">Login:</label>
 				<h:inputText styleClass="form-control" style="width:300px" id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}" />
-				<p:watermark for="nomeUsuario" value="Digite seu login..." id="watermarkUsuario" />
+				<p:watermark for="nomeUsuario" value="Informe seu login..." id="watermarkUsuario" />
 			</div>
 			
 			<div class="form-group">
 				<label for="senha">Senha:</label>
 				<h:inputSecret styleClass="form-control" style="width:300px" id="senha" value="#{usuarioBean.usuario.senha}" />
-				<p:watermark for="senha" value="Digite sua senha..." id="watermarkSenha" />
+				<p:watermark for="senha" value="Informe sua senha..." id="watermarkSenha" />
 			</div>
 			
-			<h:commandButton styleClass="btn btn-success" value="Cadastro" icon="ui-icon-circle-plus" action="#{usuarioBean.envia}" />
-			<h:commandButton styleClass="btn btn-primary" style="margin-left: 10px" value="Entrar" icon="ui-icon-disk" action="#{usuarioBean.envia}" />
+			<h:commandButton styleClass="btn btn-success" value="Cadastrar" icon="ui-icon-circle-plus" action="#{usuarioBean.salva}" />
 		</div>
 	</h:form>
 </h:body>
