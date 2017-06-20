@@ -11,8 +11,9 @@
 <h:body>
 	<h:form>
 		<div align="center" >
-			<h1><h:outputText id="bemVindo" value="Registre-se"/></h1>
-			<h:messages id="messages" />
+			<div class="form-group"><h2><span class="glyphicon glyphicon-pencil" /> Registre-se</h2></div>
+
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 		
 			<div class="form-group">
 				<label for="login">Login:</label>
@@ -26,7 +27,9 @@
 				<p:watermark for="senha" value="Informe sua senha..." id="watermarkSenha" />
 			</div>
 			
-			<h:commandButton styleClass="btn btn-success" value="Cadastrar" icon="ui-icon-circle-plus" action="#{usuarioBean.salva}" />
+			<p:tooltip />
+			<p:commandButton styleClass="btn btn-success" value="Cadastrar" icon="ui-icon-circle-plus" actionListener="#{usuarioBean.salva}" />
+			<p:separator />
 		</div>
 	</h:form>
 </h:body>

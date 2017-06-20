@@ -12,7 +12,7 @@
 	<h:form>
 		<div align="center" >
 			<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema"/></h1>
-			<h:messages id="messages" />
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 		
 			<div class="form-group">
 				<label for="login">Login:</label>
@@ -26,8 +26,10 @@
 				<p:watermark for="senha" value="Digite sua senha..." id="watermarkSenha" />
 			</div>
 			
-			<h:commandButton styleClass="btn btn-success" value="Cadastro" icon="ui-icon-circle-plus" action="#{usuarioBean.envia}" />
+			<p:tooltip />
+			<h:commandButton styleClass="btn btn-success" value="Cadastro" icon="ui-icon-circle-plus" action="register.xhtml" />
 			<h:commandButton styleClass="btn btn-primary" style="margin-left: 10px" value="Entrar" icon="ui-icon-disk" action="#{usuarioBean.envia}" />
+			<p:separator />
 		</div>
 	</h:form>
 </h:body>
