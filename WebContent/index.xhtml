@@ -10,25 +10,28 @@
 
 <h:body>
 	<h:form>
-		<div align="center" >
-			<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema"/></h1>
+		<div align="center">
+			<h1>
+				<h:outputText id="bemVindo" value="Bem vindo(a) ao sistema" />
+			</h1>
+			
 			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-		
+
 			<div class="form-group">
 				<label for="login">Login:</label>
 				<h:inputText styleClass="form-control" style="width:300px" id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}" />
 				<p:watermark for="nomeUsuario" value="Digite seu login..." id="watermarkUsuario" />
 			</div>
-			
+
 			<div class="form-group">
 				<label for="senha">Senha:</label>
 				<h:inputSecret styleClass="form-control" style="width:300px" id="senha" value="#{usuarioBean.usuario.senha}" />
 				<p:watermark for="senha" value="Digite sua senha..." id="watermarkSenha" />
 			</div>
-			
+
 			<p:tooltip />
-			<h:commandButton styleClass="btn btn-success" value="Cadastro" icon="ui-icon-circle-plus" action="register.xhtml" />
-			<h:commandButton styleClass="btn btn-primary" style="margin-left: 10px" value="Entrar" icon="ui-icon-disk" action="#{usuarioBean.envia}" />
+			<p:commandButton styleClass="btn btn-success" value="Cadastro" icon="ui-icon-circle-plus" actionListener="#{usuarioBean.goRegisterPage}" />
+			<p:commandButton styleClass="btn btn-primary" style="margin-left: 10px" value="Entrar" icon="ui-icon-disk" actionListener="#{usuarioBean.envia}" />
 			<p:separator />
 		</div>
 	</h:form>

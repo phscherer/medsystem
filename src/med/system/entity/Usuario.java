@@ -10,40 +10,40 @@ import javax.persistence.Id;
 @Entity
 public class Usuario implements Bean {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name="id", nullable=false, unique=true)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name="id", nullable=false, unique=true)
+    private Long id;
 
-	@Column(name="userName", nullable=false, unique=true)
-	private String nomeUsuario;
+    @Column(name="userName", nullable=false, unique=true)
+    private String nomeUsuario;
 
-	@Column(name="password", nullable=false, unique=false)
-	private String senha;
+    @Column(name="password", nullable=false, unique=false)
+    private String senha;
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public String getSenha() {
+        return senha;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

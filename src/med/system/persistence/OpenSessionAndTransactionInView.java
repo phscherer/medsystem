@@ -14,33 +14,33 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("/*")
 public class OpenSessionAndTransactionInView implements Filter{
 
-	@Override
-	public void destroy() {
-		JpaUtil.closeEntityManagerFactory();
+    @Override
+    public void destroy() {
+        JpaUtil.closeEntityManagerFactory();
 
-	}
+    }
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		EntityManager em = JpaUtil.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		try {
-			tx.begin();
-			chain.doFilter(request, response);
-			tx.commit();
-		} catch (Exception e) {
-			if(tx != null && tx.isActive()){
-				tx.rollback();
-			}
-		}
-		finally {
-			if(em.isOpen()) {
-				em.close();
-			}
-		}
-	}
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            chain.doFilter(request, response);
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null && tx.isActive()){
+                tx.rollback();
+            }
+        }
+        finally {
+            if(em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-	}
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 }
