@@ -5,23 +5,30 @@
 
 <h:head>
 	<title>Login - MedSystem</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/faces.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
 </h:head>
 
 <h:body>
 	<h:form>
-		<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema."/></h1>
-		<p:messages id="messages" />
-		<p:panelGrid columns="2" styleClass="form">
-			<p:outputLabel for="nomeUsuario" value="Login:" />
-			<p:inputText id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}" />
-
-			<p:outputLabel for="senha" value="Senha:" />
-			<p:password id="senha" value="#{usuarioBean.usuario.senha}" />
-
-			<p:commandButton value="Entrar" icon="ui-icon-star" action="#{usuarioBean.envia}" ajax="false" />
-			<p:commandButton value="Cadastrar" icon="ui-icon-star" action="#{usuarioBean.envia}" ajax="false" />
-		</p:panelGrid>
+		<div align="center" >
+			<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema"/></h1>
+			<h:messages id="messages" />
+		
+			<div class="form-group">
+				<label for="login">Login:</label>
+				<h:inputText styleClass="form-control" style="width:300px" id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}" />
+				<p:watermark for="nomeUsuario" value="Digite seu login..." id="watermarkUsuario" />
+			</div>
+			
+			<div class="form-group">
+				<label for="senha">Senha:</label>
+				<h:inputSecret styleClass="form-control" style="width:300px" id="senha" value="#{usuarioBean.usuario.senha}" />
+				<p:watermark for="senha" value="Digite sua senha..." id="watermarkSenha" />
+			</div>
+			
+			<h:commandButton styleClass="btn btn-success" value="Cadastrar" icon="ui-icon-circle-plus" action="#{usuarioBean.envia}" />
+			<h:commandButton styleClass="btn btn-primary" style="margin-left: 10px" value="Entrar" icon="ui-icon-disk" action="#{usuarioBean.envia}" />
+		</div>
 	</h:form>
 </h:body>
 </html>
