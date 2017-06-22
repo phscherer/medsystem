@@ -2,18 +2,14 @@ package med.system.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
 import med.system.dao.UsuarioDAO;
 import med.system.entity.Usuario;
 import med.system.persistence.SessionContext;
 
 @ManagedBean(name = "usuarioBean")
-@SessionScoped
 public class UsuarioBean {
 
     private Usuario usuario = new Usuario();

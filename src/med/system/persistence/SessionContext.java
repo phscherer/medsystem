@@ -1,10 +1,12 @@
 package med.system.persistence;
 
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import med.system.entity.Usuario;
 
+@SessionScoped
 public class SessionContext {
     private static SessionContext instance;
 
