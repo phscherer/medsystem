@@ -5,17 +5,23 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import med.system.dao.UsuarioDAO;
 import med.system.entity.Usuario;
+import med.system.persistence.SessionContext;
 
-@ManagedBean
+@ManagedBean(name = "usuarioBean")
+@SessionScoped
 public class UsuarioBean {
 
     private Usuario usuario = new Usuario();
     private UsuarioDAO usuarioDao = new UsuarioDAO();
-
+    
+    public Usuario getUser() {
+        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
+    }
     
     public void salva() throws IOException {
         if (isFilledFields(this.usuario)) {
@@ -50,14 +56,20 @@ public class UsuarioBean {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", "Erro no Login!"));
         } else {
+            SessionContext.getInstance().setAttribute("usuarioBean", usuario);
             FacesContext.getCurrentInstance().getExternalContext().redirect("main.xhtml");
         }
     }
-
+    
+    public void doLogout() throws IOException {
+        SessionContext.getInstance().encerrarSessao();
+        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+    }
+    
     public void goRegisterPage() throws IOException {
         FacesContext.getCurrentInstance().getExternalContext().redirect("register.xhtml");
     }
-
+    
     public Usuario getUsuario() {
         return usuario;
     }
