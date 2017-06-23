@@ -4,6 +4,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/faces.css" />
 </h:head>
 <h:body>
 	<h:form>
@@ -16,9 +17,20 @@
 		              <span class="icon-bar"></span>
 		              <span class="icon-bar"></span>
 		            </button>
-		            <a class="navbar-brand">MedSystem</a>
-		            <a class="navbar-brand" href="#">Perfil</a>
-		        	<a class="navbar-brand" href="#">Consultas</a>
+		            
+		            <ul id="menu">
+		            	<li><a class="navbar-brand">MedSystem</a></li>
+			            <li><a class="navbar-brand" href="#">Perfil</a></li>
+		            	<li>
+			            	<a class="navbar-brand" href="#">Consultas</a>
+			            	<ul>
+			            		<li><a href="#">Minhas consultas</a></li>
+					            <li><a href="#">Cadastrar nova</a></li>
+					            <li><a href="#">Agendadas</a></li>
+					            <li><a href="#">Cancelamento</a></li>
+				            </ul>
+			            </li>
+			        </ul>
 		        </div>
 		        
 		        <div id="navbar" class="navbar-collapse collapse">
