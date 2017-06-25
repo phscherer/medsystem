@@ -7,15 +7,20 @@
 <h:head>
 	<title>Página Inicial - MedSystem</title>
 	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/template.css" />
 </h:head>
 
 <h:body>
-	<ui:include src="WEB-INF/comuns/header.xhtml" />
-	<h:form>
-
-	</h:form>
+	<div class="geral">
+		<ui:include src="WEB-INF/comuns/header.xhtml" />
+		<h:form>
 	
-	<ui:include src="WEB-INF/comuns/modal.xhtml" />
-	<ui:include src="WEB-INF/comuns/footer.xhtml" />
+		</h:form>
+		
+		<ui:include src="WEB-INF/comuns/modal.xhtml" />
+		<div class="footer">
+			<ui:include src="WEB-INF/comuns/footer.xhtml" />
+		</div>
+	</div>
 </h:body>
 </html>
