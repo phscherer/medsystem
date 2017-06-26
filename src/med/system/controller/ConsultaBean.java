@@ -1,20 +1,14 @@
 package med.system.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
-
 import med.system.dao.ConsultaDAO;
-import med.system.dao.DoutorDAO;
 import med.system.entity.Consulta;
-import med.system.entity.Doutor;
 
-@ManagedBean
+@ManagedBean(name = "consultaBean")
 public class ConsultaBean {
     
     private Consulta consulta = new Consulta();
@@ -35,20 +29,10 @@ public class ConsultaBean {
             this.consultaDao.salva(this.consulta);
             this.consulta = new Consulta();
 
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO!", "Paciente cadastrado com sucesso!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO!", "Consulta agendada com sucesso!"));
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
             FacesContext.getCurrentInstance().getExternalContext().redirect("../main.xhtml");
         }
-    }
-    
-    public List<SelectItem> getDoutores() {
-       DoutorDAO doutorDao = new DoutorDAO();
-       List<Doutor> listaDoutores = doutorDao.listaTodos();
-       List<SelectItem> itens = new ArrayList<SelectItem>(listaDoutores.size());
-       listaDoutores.forEach(doutor -> {
-           itens.add(new SelectItem(doutor.getId(), doutor.getNome()));
-       });
-       return itens;
     }
     
     private boolean isFilledFields(Consulta consulta) {
