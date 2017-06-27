@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+<h:head>
+	<title>Agendar consulta - MedSystem</title>
+	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/template.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/faces.css" />
+</h:head>
+
+<h:body>
+	<div class="geral">
+		<ui:include src="../WEB-INF/comuns/header.xhtml" />
+		<h:form>
+			<div class="form-group"><h2><span class="glyphicon glyphicon-pencil"></span> Agendar consulta</h2></div>
+			<hr />
+			
+			<div class="row">
+		        <div class="form-group col-xs-6">
+		            <label for="titulo">Titulo:</label> 
+		            <h:inputText styleClass="form-control" id="tituloConsulta" value="#{consultaBean.consulta.titulo}" />
+		            <p:watermark for="tituloConsulta" value="Titulo da consulta" id="watermarkTitulo" />
+		        </div>
+		        <div class="form-group col-xs-3">
+		        	<label for="dataConsulta">Data Consulta:</label> 
+		            <h:inputText styleClass="form-control" id="dataConsulta" value="#{consultaBean.consulta.dataConsulta}">
+		            	<f:convertDateTime pattern="dd/MM/yyyy" />
+		            </h:inputText>
+		            <p:watermark for="dataConsulta" value="Data da consulta" id="watermarkData" />
+		        </div>
+		    </div>
+		
+		    <div class="row">
+				<div class="form-group col-xs-3">
+		            <label for="doutor">Doutor:</label>
+		            <h:selectOneMenu styleClass="form-control" value="#{doutorBean.doutor.id}">
+					<f:selectItem itemValue="" itemLabel="Selecione..." />
+					<f:selectItems value="#{doutorBean.doutoresSelectedItem}" />
+					</h:selectOneMenu>
+		        </div>
+		        <div class="form-group col-xs-6">
+		            <label for="comboRule">Paciente:</label>
+		            <h:selectOneMenu styleClass="form-control" value="#{usuarioBean.usuario.id}">
+					<f:selectItems value="#{usuarioBean.patient}" />
+					</h:selectOneMenu>
+		        </div>  
+		    </div>
+
+		    <div class="row">
+		    	<div class="form-group col-xs-9">
+		    		<label for="Observacoes">Observações:</label>
+		    		<h:inputTextarea styleClass="form-control" id="obs" value="#{consultaBean.consulta.observacoes}" />
+		    	</div>
+		    </div>
+		    
+		    <div class="form-group">
+		    	<p:tooltip />
+		        <p:commandButton styleClass="btn btn-success" value="Salvar" icon="ui-icon-circle-plus" actionListener="#{consultaBean.salva}" />
+		        <p:commandButton styleClass="btn btn-default" data-dismiss="modal" value="Voltar" />
+		        <p:separator />
+		    </div>
+		</h:form>
+		
+		<ui:include src="../WEB-INF/comuns/modal.xhtml" />
+		<div class="footer">
+			<ui:include src="../WEB-INF/comuns/footer.xhtml" />
+		</div>
+	</div>
+</h:body>
+</html>
