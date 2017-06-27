@@ -1,10 +1,12 @@
 package med.system.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import med.system.dao.UsuarioDAO;
 import med.system.entity.Usuario;
 import med.system.persistence.SessionContext;
@@ -64,6 +66,15 @@ public class UsuarioBean {
     
     public void goRegisterPage() throws IOException {
         FacesContext.getCurrentInstance().getExternalContext().redirect("register.xhtml");
+    }
+    
+    public List<SelectItem> getPatient() {
+        List<Usuario> listaUsers = this.usuarioDao.listaTodos();
+        List<SelectItem> itens = new ArrayList<SelectItem>(1);
+        for (Usuario u : listaUsers) {
+            itens.add(new SelectItem(u.getId(), u.getNome()));
+        }
+        return itens;
     }
     
     public Usuario getUsuario() {
