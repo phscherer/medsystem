@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Consulta implements Bean {
@@ -20,6 +22,7 @@ public class Consulta implements Bean {
     private Long id;
     
     @Column(name="data_consulta", nullable=false, unique=false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataConsulta;
     
     @Column(name="titulo", nullable=false, unique=false)
