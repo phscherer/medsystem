@@ -49,6 +49,10 @@ public class DoutorBean {
     private boolean isFilledFields(Doutor doutor) {
         return doutor.getNome().isEmpty() || doutor.getFaixaIdade().isEmpty();
     }
+    
+    public void goMainPage() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("../main.xhtml");
+    }
 
     public Doutor getDoutor() {
         return doutor;
