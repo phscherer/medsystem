@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+<h:head>
+	<title>Consultas Agendadas - MedSystem</title>
+	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/template.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/faces.css" />
+</h:head>
+
+<h:body>
+	<div class="geral">
+		<ui:include src="../WEB-INF/comuns/header.xhtml" />
+		<h:form>
+			<div class="container-fluid">
+	            <h1>Consultas agendadas</h1>
+	            <div class="row">
+	                <div class="col-lg-6">
+	                    <div class="input-group">
+	                        <p>
+	                            <a href="create.xhtml" data-toggle="modal" data-target="#util-modal"  class="btn btn-primary">
+	                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	                            </a>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	
+				<h:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{consultaBean.consultas}" var="item">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Assunto" />
+						</f:facet>
+						<h:outputText value="#{item.titulo}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Data" />
+						</f:facet>
+						<h:outputText value="#{item.dataConsulta}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Paciente" />
+						</f:facet>
+						<h:outputText value="#{item.paciente}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Doutor" />
+						</f:facet>
+						<h:outputText value="#{item.doutor}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:commandButton icon="glyphicon glyphicon-remove" styleClass="btn btn-danger" />
+						</f:facet>
+					</h:column>
+				</h:dataTable>
+        	</div>
+		</h:form>
+		
+		<ui:include src="../WEB-INF/comuns/modal.xhtml" />
+		<div class="footer">
+			<ui:include src="../WEB-INF/comuns/footer.xhtml" />
+		</div>
+	</div>
+</h:body>
+</html>
