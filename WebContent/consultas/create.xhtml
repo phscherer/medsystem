@@ -43,8 +43,8 @@
 		        </div>
 		        <div class="form-group col-xs-6">
 		            <label for="comboRule">Paciente:</label>
-		            <h:selectOneMenu styleClass="form-control" value="#{usuarioBean.usuario.id}">
-					<f:selectItems value="#{usuarioBean.patient}" />
+		            <h:selectOneMenu styleClass="form-control" value="#{usuarioBean.usuarioLogado.id}">
+					<f:selectItems value="#{usuarioBean.usuarioLogado.nome}" />
 					</h:selectOneMenu>
 		        </div>  
 		    </div>

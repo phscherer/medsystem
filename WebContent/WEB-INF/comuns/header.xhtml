@@ -24,10 +24,9 @@
 		            	<li>
 			            	<a class="navbar-brand" href="#">Consultas</a>
 			            	<ul>
-			            		<li><a href="#">Minhas consultas</a></li>
+			            		<li><a href="consultas/list-per-patient.xhtml">Minhas consultas</a></li>
 					            <li><a href="consultas/create.xhtml">Cadastrar nova</a></li>
-					            <li><a href="#">Agendadas</a></li>
-					            <li><a href="#">Cancelamento</a></li>
+					            <li><a href="consultas/list.xhtml">Agendadas</a></li>
 				            </ul>
 			            </li>
 			            <li>
@@ -43,7 +42,7 @@
 		        <div id="navbar" class="navbar-collapse collapse">
 		            <ul class="nav navbar-nav navbar-right">
 		            	<li>
-		            		<a href="#">Logado como <h:outputText value="#{usuarioBean.user.nome}" /></a>
+		            		<a href="#">Logado como <h:outputText value="#{usuarioBean.usuarioLogado.nome}" /></a>
 		            	</li>
 		                <li>
 		                	<a href="index.xhtml">Sair</a>
