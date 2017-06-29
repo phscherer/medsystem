@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 import med.system.dao.UsuarioDAO;
 import med.system.entity.Usuario;
 import med.system.persistence.SessionContext;
@@ -17,8 +18,9 @@ public class UsuarioBean {
     private Usuario usuario = new Usuario();
     private UsuarioDAO usuarioDao = new UsuarioDAO();
     
-    public Usuario getUser() {
-        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
+    public Usuario getUsuarioLogado() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        return (Usuario) session.getAttribute("usuarioBean");
     }
     
     public void salva() throws IOException {
