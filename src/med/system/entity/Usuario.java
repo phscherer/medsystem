@@ -41,6 +41,14 @@ public class Usuario implements Bean {
     @OneToMany(mappedBy="paciente", cascade = CascadeType.ALL)
     private List<Consulta> consultasRelacionadas;
     
+    public List<Consulta> getConsultasRelacionadas() {
+        return consultasRelacionadas;
+    }
+
+    public void setConsultasRelacionadas(List<Consulta> consultasRelacionadas) {
+        this.consultasRelacionadas = consultasRelacionadas;
+    }
+
     public String getNome() {
         return nome;
     }
