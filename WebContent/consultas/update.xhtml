@@ -17,7 +17,15 @@
 		<h:form>
 			<div class="form-group"><h2><span class="glyphicon glyphicon-pencil"></span> Editar consulta</h2></div>
 			<hr />
-			
+
+			<div class="row">
+				<div class="form-group col-xs-1">
+					<label for="titulo">ID:</label>
+					<h:outputText styleClass="form-control" id="idConsulta"
+						value="#{consultaBean.consulta.id}" />
+				</div>
+			</div>
+
 			<div class="row">
 		        <div class="form-group col-xs-6">
 		            <label for="titulo">Titulo:</label> 
