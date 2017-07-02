@@ -29,26 +29,31 @@
 	                </div>
 	            </div>
 	
-				<h:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{doutorBean.doutores}" var="item">
+				<h:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{doutorBean.doutores}" var="doutor">
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="ID" />
 						</f:facet>
-						<h:outputText value="#{item.id}" />
+						<h:outputText value="#{doutor.id}" />
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Nome" />
 						</f:facet>
-						<h:outputText value="#{item.nome}" />
+						<h:outputText value="#{doutor.nome}" />
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Faixa Idade" />
 						</f:facet>
-						<h:outputText value="#{item.faixaIdade}" />
+						<h:outputText value="#{doutor.faixaIdade}" />
+					</h:column>
+					
+					<h:column>
+						<p:tooltip />
+						<p:commandButton icon="ui-icon-circle-close" actionListener="#{doutorBean.exclui(doutor)}" />
 					</h:column>
 				</h:dataTable>
         	</div>

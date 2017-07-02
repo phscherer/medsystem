@@ -16,8 +16,9 @@ public class DoutorBean {
     private Doutor doutor = new Doutor();
     private DoutorDAO doutorDao = new DoutorDAO();
     
-    public void exclui(Doutor doutor) {
+    public void exclui(Doutor doutor) throws IOException {
         this.doutorDao.remove(doutor);
+        goListPage();
     }
     
     public List<Doutor> getDoutores() {
@@ -52,6 +53,10 @@ public class DoutorBean {
     
     public void goMainPage() throws IOException {
         FacesContext.getCurrentInstance().getExternalContext().redirect("../main.xhtml");
+    }
+    
+    public void goListPage() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("consult.xhtml");
     }
 
     public Doutor getDoutor() {
