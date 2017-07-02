@@ -56,6 +56,12 @@
 						<p:commandButton icon="ui-icon-circle-close" actionListener="#{doutorBean.exclui(doutor)}" />
 					</h:column>
 				</h:dataTable>
+				
+				<div class="form-group">
+			    	<p:tooltip />
+			        <p:commandButton styleClass="btn btn-default" data-dismiss="modal" value="Voltar" action="#{doutorBean.goMainPage}"/>
+			        <p:separator />
+			    </div>
         	</div>
 		</h:form>
 		

@@ -43,7 +43,7 @@ public class DoutorBean {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO!", "Doutor registrado com sucesso!"));
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("../main.xhtml");
+            goListPage();
         }
     }
     
