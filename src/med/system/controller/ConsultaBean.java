@@ -41,7 +41,7 @@ public class ConsultaBean {
     }
     
     public void update(Consulta consulta) throws IOException {
-        this.setConsulta(consulta);
+        this.consulta = consulta;
         goUpdatePage();
     }
     
