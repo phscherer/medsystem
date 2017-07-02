@@ -30,7 +30,7 @@
 	            </div>
 	
 				<h:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{consultaBean.consultas}" 
-					var="item" border="1" paginator="true" rows="3" lazy="true">
+					var="item" paginator="true" rows="3" lazy="true">
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="ID" />
@@ -68,7 +68,7 @@
 					
 					<h:column>
 						<p:tooltip />
-						<p:commandButton icon="ui-icon-pencil" actionListener="#{consultaBean.update(item)}" />
+						<p:commandButton icon="ui-icon-pencil" action="#{consultaBean.update(item)}" />
 					</h:column>
 					
 					<h:column>
