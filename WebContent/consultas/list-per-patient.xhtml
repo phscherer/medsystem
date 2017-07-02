@@ -29,53 +29,59 @@
 	                </div>
 	            </div>
 	
-				<h:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{consultaBean.consultas}" 
-					var="item" paginator="true" rows="3" lazy="true">
-					<h:column>
+				<p:dataTable id="grid-basic" styleClass="table table-condensed table-hover table-striped" value="#{consultaBean.consultas}" 
+					var="consulta" paginator="true" rows="9" lazy="true">
+					<p:column>
 						<f:facet name="header">
 							<h:outputText value="ID" />
 						</f:facet>
-						<h:outputText value="#{item.id}" />
-					</h:column>
+						<h:outputText value="#{consulta.id}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Assunto" />
 						</f:facet>
-						<h:outputText value="#{item.titulo}" />
-					</h:column>
+						<h:outputText value="#{consulta.titulo}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Data" />
 						</f:facet>
-						<h:outputText value="#{item.dataConsulta}" />
-					</h:column>
+						<h:outputText value="#{consulta.dataConsulta}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Paciente" />
 						</f:facet>
-						<h:outputText value="#{item.paciente.nome}" />
-					</h:column>
+						<h:outputText value="#{consulta.paciente.nome}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Doutor" />
 						</f:facet>
-						<h:outputText value="#{item.doutor.nome}" />
-					</h:column>
+						<h:outputText value="#{consulta.doutor.nome}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<p:tooltip />
-						<p:commandButton icon="ui-icon-pencil" action="#{consultaBean.update(item)}" />
-					</h:column>
+						<p:commandButton icon="ui-icon-pencil" action="#{consultaBean.update(consulta)}" />
+					</p:column>
 					
-					<h:column>
+					<p:column>
 						<p:tooltip />
-						<p:commandButton icon="ui-icon-circle-close" actionListener="#{consultaBean.exclui(item)}" />
-					</h:column>
-				</h:dataTable>
+						<p:commandButton icon="ui-icon-circle-close" actionListener="#{consultaBean.exclui(consulta)}" />
+					</p:column>
+				</p:dataTable>
+				
+				<div class="form-group">
+			    	<p:tooltip />
+			        <p:commandButton styleClass="btn btn-default" data-dismiss="modal" value="Voltar" action="#{doutorBean.goMainPage}"/>
+			        <p:separator />
+			    </div>
         	</div>
 		</h:form>
 		

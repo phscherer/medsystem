@@ -5,13 +5,14 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import med.system.dao.ConsultaDAO;
 import med.system.entity.Consulta;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name = "consultaBean")
 public class ConsultaBean {
     
@@ -36,7 +37,7 @@ public class ConsultaBean {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO!", "Consulta agendada com sucesso!"));
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("../main.xhtml");
+            goListPage();
         }
     }
     
