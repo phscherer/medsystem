@@ -26,7 +26,8 @@ public class ConsultaBean {
         if (isFilledFields(this.consulta)) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "ERRO!", "Informe os dados corretamente."));
         } else {
-            this.consultaDao.salva(this.consulta);
+            Consulta newConsulta = this.consulta;
+            this.consultaDao.salva(newConsulta);
             this.consulta = new Consulta();
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "SUCESSO!", "Consulta agendada com sucesso!"));

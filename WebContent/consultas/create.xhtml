@@ -36,15 +36,17 @@
 		    <div class="row">
 				<div class="form-group col-xs-3">
 		            <label for="doutor">Doutor:</label>
-		            <h:selectOneMenu styleClass="form-control" value="#{doutorBean.doutor.id}">
-					<f:selectItem itemValue="" itemLabel="Selecione..." />
-					<f:selectItems value="#{doutorBean.doutoresSelectedItem}" />
+		            <h:selectOneMenu id="doutor" value="#{consultaBean.consulta.doutor}" label="doutor" 
+		            	converter="entityConverter" styleClass="form-control" items="#{doutorBean.doutoresSelectedItem}">
+						<f:selectItem itemValue="" itemLabel="Selecione..." />
+						<f:selectItems var="doutor" value="#{doutorBean.doutores}" itemValue="#{doutor}" itemLabel="#{doutor.nome}" />
 					</h:selectOneMenu>
 		        </div>
 		        <div class="form-group col-xs-6">
 		            <label for="comboRule">Paciente:</label>
-		            <h:selectOneMenu styleClass="form-control" value="#{usuarioBean.usuarioLogado.id}">
-					<f:selectItems value="#{usuarioBean.usuarioLogado.nome}" />
+		            <h:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" label="paciente" 
+           				converter="entityConverter" styleClass="form-control" items="#{usuarioBean.patient}">
+						<f:selectItems var="paciente" value="#{usuarioBean.usuarios}" itemValue="#{paciente}" itemLabel="#{paciente.nome}" />
 					</h:selectOneMenu>
 		        </div>  
 		    </div>
