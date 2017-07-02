@@ -1,11 +1,17 @@
 package med.system.entity;
 
+import java.util.List;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.envers.NotAudited;
 
 @Entity
 public class Usuario implements Bean {
@@ -31,6 +37,9 @@ public class Usuario implements Bean {
     @Column(name="gender", nullable=false, unique=false)
     private String genero;
     
+    @NotAudited
+    @OneToMany(mappedBy="paciente", cascade = CascadeType.ALL)
+    private List<Consulta> consultasRelacionadas;
     
     public String getNome() {
         return nome;
