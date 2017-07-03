@@ -31,11 +31,11 @@
 			<div class="row">
 		        <div class="form-group col-xs-6">
 		            <label for="titulo">Titulo:</label> 
-		            <h:inputText styleClass="form-control" id="tituloConsulta" value="#{consultaBean.consulta.titulo}" required="true" />
+		            <h:inputText styleClass="form-control" id="tituloConsulta" value="#{consultaBean.consulta.titulo}" />
 		        </div>
 		        <div class="form-group col-xs-3">
 		        	<label for="dataConsulta">Data Consulta:</label> 
-		            <h:inputText styleClass="form-control" id="dataConsulta" value="#{consultaBean.consulta.dataConsulta}" required="true" >
+		            <h:inputText styleClass="form-control" id="dataConsulta" value="#{consultaBean.consulta.dataConsulta}">
 		            	<f:convertDateTime pattern="dd/MM/yyyy" />
 		            </h:inputText>
 		        </div>
@@ -45,7 +45,7 @@
 				<div class="form-group col-xs-3">
 		            <label for="doutor">Doutor:</label>
 		            <h:selectOneMenu id="doutor" value="#{consultaBean.consulta.doutor}" label="doutor" 
-		            	converter="entityConverter" styleClass="form-control" items="#{doutorBean.doutoresSelectedItem}" required="true" >
+		            	converter="entityConverter" styleClass="form-control" items="#{doutorBean.doutoresSelectedItem}">
 						<f:selectItem itemValue="" itemLabel="Selecione..." />
 						<f:selectItems var="doutor" value="#{doutorBean.doutores}" itemValue="#{doutor}" itemLabel="#{doutor.nome}" />
 					</h:selectOneMenu>
@@ -53,7 +53,7 @@
 		        <div class="form-group col-xs-6">
 		            <label for="comboRule">Paciente:</label>
 		            <h:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" label="paciente" 
-           				converter="entityConverter" styleClass="form-control" items="#{usuarioBean.patient}" required="true" >
+           				converter="entityConverter" styleClass="form-control" items="#{usuarioBean.patient}">
 						<f:selectItems var="paciente" value="#{usuarioBean.usuarios}" itemValue="#{paciente}" itemLabel="#{paciente.nome}" />
 					</h:selectOneMenu>
 		        </div>  

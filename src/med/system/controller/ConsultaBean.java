@@ -47,7 +47,7 @@ public class ConsultaBean {
     }
     
     private boolean isFilledFields(Consulta consulta) {
-        return consulta.getTitulo().isEmpty() || consulta.getDataConsulta() == null;
+        return consulta.getTitulo().isEmpty() || consulta.getDataConsulta() == null || consulta.getDoutor() == null || consulta.getPaciente() == null;
     }
     
     public void goUpdatePage() throws IOException {
